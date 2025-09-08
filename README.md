@@ -28,3 +28,17 @@ Construir una pantalla básica en Flutter con `StatefulWidget` y evidenciar el u
 1. Clonar el repositorio:
    ```bash
    git clone https://github.com/daniela-erazo-marin/curso_flutter.git
+
+2. Ingrese al directorio del proyecto:
+
+   cd curso-flutter
+
+
+3. Instalar las dependencias:
+
+   flutter pub get
+
+
+4. Ejecuta el proyecto en un emulador o dispositivo físico:
+
+   flutter run
