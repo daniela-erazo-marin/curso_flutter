@@ -43,10 +43,10 @@ Construir una pantalla básica en Flutter con `StatefulWidget` y evidenciar el u
 
    flutter run
 
-##Versión de flutter: Flutter 3.35.2
+## Versión de flutter: Flutter 3.35.2
 
 
-##Proyecto en uso:
+## Proyecto en uso:
 
 <img width="654" height="1371" alt="Captura de pantalla 2025-09-07 192032" src="https://github.com/user-attachments/assets/a3c8c259-a244-4a99-a07a-4211fa249400" />
 
