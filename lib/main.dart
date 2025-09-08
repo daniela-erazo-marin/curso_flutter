@@ -102,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                     title: Text('Elemento 2: corazón de acero'),
                   ),
                   ListTile(
-                    leading: Icon(Icons.map, color: Color.fromARGB(255, 24, 148, 53)),
+                    leading: Icon(Icons.map, color: Color.fromARGB(255, 62, 181, 90)),
                     title: Text('Elemento 3: mapa del mundo'),
                   ),
                 ],
