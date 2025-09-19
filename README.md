@@ -51,4 +51,26 @@ Construir una pantalla básica en Flutter con `StatefulWidget` y evidenciar el u
 <img width="654" height="1371" alt="Captura de pantalla 2025-09-07 192032" src="https://github.com/user-attachments/assets/a3c8c259-a244-4a99-a07a-4211fa249400" />
 
 
+# Taller 2 - Flutter Navegación y Widgets
 
+## 📌 Rutas
+- `/` → HomeScreen
+- `/paso_parametros` → Paso de parámetros con go/push/replace
+- `/detalle/:parametro/:metodo` → Muestra parámetros recibidos
+- `/ciclo_vida` → Demostración del ciclo de vida de un StatefulWidget
+- `/widgets_demo` → Demostración de GridView, TabBar y ExpansionTile
+
+## 📌 Widgets usados
+- **GridView** → Mostrar lista de elementos en cuadrícula.
+- **TabBar** → Manejo de secciones/pestañas en una misma pantalla.
+- **ExpansionTile** → Mostrar información expandible (tercer widget).
+- **Drawer personalizado** → Navegación lateral común.
+- **Scaffold + AppBar** → Estructura base de todas las vistas.
+
+## 📌 Ciclo de vida evidenciado
+Se registran en consola:
+- `initState()` → Inicialización del widget.
+- `didChangeDependencies()` → Cuando cambian dependencias (ej. tema).
+- `build()` → Cada vez que se reconstruye la UI.
+- `setState()` → Cuando se actualiza el estado.
+- `dispose()` → Antes de destruir el widget.
