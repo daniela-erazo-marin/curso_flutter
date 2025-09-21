@@ -59,6 +59,8 @@ Construir una pantalla básica en Flutter con `StatefulWidget` y evidenciar el u
 - `/detalle/:parametro/:metodo` → Muestra parámetros recibidos
 - `/ciclo_vida` → Demostración del ciclo de vida de un StatefulWidget
 - `/widgets_demo` → Demostración de GridView, TabBar y ExpansionTile
+- `/home/:parametro/:metodo` Muestra parámetros recibidos desde home page
+
 
 ## 📌 Widgets usados
 - **GridView** → Mostrar lista de elementos en cuadrícula.

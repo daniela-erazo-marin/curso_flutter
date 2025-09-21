@@ -149,22 +149,22 @@ class _WidgetsDemoScreenState extends State<WidgetsDemoScreen>
           ListView(
             children: const [
               ExpansionTile(
-                leading: Icon(Icons.info),
-                title: Text("Opción 1"),
+                leading: Text('🦁'),//Icon(Icons.lion),
+                title: Text("León"),
                 children: [
                   Padding(
                     padding: EdgeInsets.all(8.0),
-                    child: Text("Detalle de la opción 1"),
+                    child: Text("El león es un mamífero carnívoro de la familia de los félidos, conocido como el “rey de la selva”. Se caracteriza por su gran tamaño, su melena en el caso de los machos y su vida social en manadas, algo poco común en los felinos. Habita principalmente en sabanas y praderas de África, y destaca por su fuerza, agilidad y rugido imponente."),
                   )
                 ],
               ),
               ExpansionTile(
-                leading: Icon(Icons.settings),
-                title: Text("Opción 2"),
+                leading: Text('🐯'),//Icon(Icons.ja),
+                title: Text("Tigre"),
                 children: [
                   Padding(
                     padding: EdgeInsets.all(8.0),
-                    child: Text("Detalle de la opción 2"),
+                    child: Text("El tigre es el felino más grande del mundo y se distingue por su pelaje anaranjado con rayas negras únicas en cada individuo. Es un cazador solitario y territorial que habita principalmente en bosques y selvas de Asia. Posee gran fuerza, agilidad y una excelente capacidad de camuflaje, lo que lo convierte en un depredador muy eficaz."),
                   )
                 ],
               ),
