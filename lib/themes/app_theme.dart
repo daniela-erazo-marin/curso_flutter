@@ -5,14 +5,14 @@ class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
       colorScheme: ColorScheme.fromSeed(
-        seedColor: const Color.fromARGB(255, 29, 23, 202), // Color semilla
+        seedColor: const Color.fromARGB(255, 23, 202, 101), // Color semilla
         brightness: Brightness.light, // Tema claro
       ),
       useMaterial3: true,
       appBarTheme: const AppBarTheme(
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Color.fromARGB(255, 20, 165, 97), // Color del AppBar
+        backgroundColor: const Color.fromARGB(255, 23, 202, 101),  // Color del AppBar
         titleTextStyle: TextStyle(
           color: Colors.white, // Texto blanco para el AppBar
           fontSize: 20,
