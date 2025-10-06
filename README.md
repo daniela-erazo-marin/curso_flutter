@@ -76,3 +76,59 @@ Se registran en consola:
 - `build()` → Cada vez que se reconstruye la UI.
 - `setState()` → Cuando se actualiza el estado.
 - `dispose()` → Antes de destruir el widget.
+
+
+# Taller 3 - Asincronía, Timer e Isolates en Flutter
+
+## 🧠 1. Uso de Future / async / await
+- **Cuándo usarlo:**  
+  Cuando queremos realizar operaciones asincrónicas sin bloquear la interfaz de usuario (UI).  
+  Ejemplo: cargar datos desde una API o base de datos.
+
+- **Implementación:**  
+  Se usó `Future.delayed` para simular una carga de datos (2–5 s) y `async/await` para esperar el resultado.
+  Se muestran estados en pantalla:
+  - “Cargando...” → `CircularProgressIndicator`
+  - “Éxito” → muestra la lista de nombres
+  - “Error” → mensaje de error en caso de excepción
+
+---
+
+## ⏱️ 2. Uso de Timer
+- **Cuándo usarlo:**  
+  Para tareas repetitivas o temporizadas, como un cronómetro, cuenta regresiva o refresco de datos periódicos.
+
+- **Implementación:**  
+  Se usó `Timer.periodic` que se ejecuta cada segundo.  
+  Botones disponibles:
+  - Iniciar
+  - Pausar
+  - Reanudar
+  - Reiniciar  
+  Además, se limpia el recurso con `_timer.cancel()` en `dispose()`.
+
+---
+
+## ⚙️ 3. Uso de Isolate
+- **Cuándo usarlo:**  
+  Para tareas pesadas de CPU (procesamiento intensivo, cálculos grandes, generación de datos)  
+  que no deben bloquear la UI principal.
+
+- **Implementación:**  
+  Se usa `Isolate.spawn()` y `ReceivePort` para comunicarse entre hilos.  
+  El isolate ejecuta una suma grande y devuelve el resultado a la interfaz.
+
+---
+
+## 🗂️ 4. Diagrama de flujo de pantallas
+
+
+[Menu Principal]
+│
+├──► [FutureView] → Simula carga de datos
+│
+├──► [TimerView] → Cronómetro con botones
+│
+└──► [IsolateView] → Tarea pesada en hilo secundario
+
+El flujo de la app se encuentra en el word entregado.
