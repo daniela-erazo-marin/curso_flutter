@@ -1,8 +1,11 @@
 import 'package:curso_flutter/views/ciclo_vida/ciclo_vida_screen.dart';
+import 'package:curso_flutter/views/future/future_view.dart';
 import 'package:curso_flutter/views/home/detalle_page.dart';
 import 'package:curso_flutter/views/home/home_screen.dart';
+import 'package:curso_flutter/views/isolate/isolate_view.dart';
 import 'package:curso_flutter/views/paso_parametros/detalle_screen.dart';
 import 'package:curso_flutter/views/paso_parametros/paso_parametros_screen.dart';
+import 'package:curso_flutter/views/timer/TimerView.dart';
 import 'package:curso_flutter/views/widgets_demo/widgets_demo_screen.dart';
 import 'package:go_router/go_router.dart';
 
@@ -57,6 +60,25 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
     path: '/widgets_demo',
     builder: (context, state) => const WidgetsDemoScreen(),
+    ),
+
+    //!Ruta para FUTURE
+    GoRoute(
+      path: '/future',
+      name: 'future',
+      builder: (context, state) => const FutureView(),
+    ),
+    //!Ruta para ISOLATE
+    GoRoute(
+      path: '/isolate',
+      name: 'isolate',
+      builder: (context, state) => const IsolateView(),
+    ),
+    //!Ruta para TIMER
+    GoRoute(
+      path: '/timer',
+      name: 'timer',
+      builder: (context, state) => const TimerView(),
     ),
   ],
 );

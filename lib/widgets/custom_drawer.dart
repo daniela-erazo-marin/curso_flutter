@@ -37,7 +37,7 @@ class CustomDrawer extends StatelessWidget {
               Navigator.pop(context); // Cierra el drawer
             },
           ),
-          ListTile(
+          /*ListTile(
             leading: const Icon(Icons.settings),
             title: const Text('Configuración'),
             onTap: () {
@@ -62,7 +62,7 @@ class CustomDrawer extends StatelessWidget {
               context.replace('/profile'); // Navega a la pantalla de perfil
               Navigator.pop(context); // Cierra el drawer
             },
-          ),
+          ),*/
           //!PASO DE PARAMETROS
           ListTile(
             leading: const Icon(Icons.input),
@@ -83,6 +83,30 @@ class CustomDrawer extends StatelessWidget {
             title: const Text('Widgets Demo'),
             onTap: () {
               context.go('/widgets_demo');
+            },
+          ),
+           //!FUTURE
+          ListTile(
+            leading: const Icon(Icons.input),
+            title: const Text('Future'),
+            onTap: () {
+              context.go('/future');
+            },
+          ),
+          //!ISOLATE
+          ListTile(
+            leading: const Icon(Icons.input),
+            title: const Text('Isolate'),
+            onTap: () {
+              context.go('/isolate');
+            },
+          ),
+          //!TIMER
+           ListTile(
+            leading: const Icon(Icons.timelapse),
+            title: const Text('TIMER'),
+            onTap: () {
+              context.go('/timer');
             },
           ),
         ],
