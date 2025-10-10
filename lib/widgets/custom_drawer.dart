@@ -109,6 +109,22 @@ class CustomDrawer extends StatelessWidget {
               context.go('/timer');
             },
           ),
+            //!POKEMONS
+          ListTile(
+            leading: const Icon(Icons.pets),
+            title: const Text('Pokemons'),
+            onTap: () {
+              context.go('/pokemons');
+            },
+          ),
+          //!CDTS
+           ListTile(
+            leading: const Icon(Icons.money),
+            title: const Text('money'),
+            onTap: () {
+              context.go('/cdts');
+            },
+          ),
         ],
       ),
     );
