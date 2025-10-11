@@ -231,17 +231,22 @@ Estas son las rutas principales del módulo de recetas junto con los parámetros
 ### Lista de Elementos 
 
 📸 Listado de recetas con imágenes y nombres
+
 ![Listado de recetas](assets/list.png)
 
  Detalle de receta mostrando instrucciones, ingredientes y tags
+
 ![Detalle de receta](assets/detail.png)
 
 📸 Pantalla de carga (CircularProgressIndicator)
+
 ![Cargando](assets/carga.png)
 
 📸 Mensaje de error si falla la petición
+
 ![Error de red](assets/error.png)
 
 📸 Mensaje de éxito
+
 ![Éxito de red](assets/exito.png)
 
