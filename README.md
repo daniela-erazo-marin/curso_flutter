@@ -167,11 +167,16 @@ Este proyecto consume la API pública **TheMealDB**, que permite buscar recetas 
     }
   ]
 }
+```
+
+
+
 
 
 Endpoint de detalle por ID
 GET https://www.themealdb.com/api/json/v1/1/lookup.php?i={id}
 Devuelve un objeto meals con una sola receta con todos sus datos.
+
 
 
 Estructura de carpetas principal usada:
@@ -223,12 +228,12 @@ Estas son las rutas principales del módulo de recetas junto con los parámetros
 /meal/:id - meal_detail_view	id vía pathParameter (Detalle de recetas)
 
 
-Aquí irían tus capturas de pantalla o GIFs:
+### Lista de Elementos 
 
 📸 Listado de recetas con imágenes y nombres
 ![Listado de recetas](assets/list.png)
 
-📸 Detalle de receta mostrando instrucciones, ingredientes y tags
+ Detalle de receta mostrando instrucciones, ingredientes y tags
 ![Detalle de receta](assets/detail.png)
 
 📸 Pantalla de carga (CircularProgressIndicator)
