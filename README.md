@@ -238,4 +238,4 @@ Aquí irían tus capturas de pantalla o GIFs:
 ![Error de red](assets/error.png)
 
 📸 Mensaje de éxito
-![Éxito de red](assets/a/la/exito.png)
+![Éxito de red](assets/exito.png)
