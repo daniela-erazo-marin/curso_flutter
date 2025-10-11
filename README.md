@@ -147,7 +147,6 @@ Este proyecto consume la API pública **TheMealDB**, que permite buscar recetas 
   `GET https://www.themealdb.com/api/json/v1/1/search.php?s={nombre}`  
   Si por ejemplo buscas *Arrabiata*:
 
-
   **Ejemplo de respuesta JSON**:
 ```json
 {
@@ -163,11 +162,12 @@ Este proyecto consume la API pública **TheMealDB**, que permite buscar recetas 
       "strIngredient1": "penne rigate",
       "strMeasure1": "1 pound",
       "strIngredient2": "olive oil",
-      "strMeasure2": "1/4 cup",
+      "strMeasure2": "1/4 cup"
       // … hasta strIngredient20 / strMeasure20 …
     }
   ]
 }
+
 
 Endpoint de detalle por ID
 GET https://www.themealdb.com/api/json/v1/1/lookup.php?i={id}
@@ -239,3 +239,4 @@ Aquí irían tus capturas de pantalla o GIFs:
 
 📸 Mensaje de éxito
 ![Éxito de red](assets/exito.png)
+
