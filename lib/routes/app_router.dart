@@ -1,9 +1,12 @@
+import 'package:curso_flutter/models/meal.dart';
 import 'package:curso_flutter/views/cdt/cdt_list_view.dart';
 import 'package:curso_flutter/views/ciclo_vida/ciclo_vida_screen.dart';
 import 'package:curso_flutter/views/future/future_view.dart';
 import 'package:curso_flutter/views/home/detalle_page.dart';
 import 'package:curso_flutter/views/home/home_screen.dart';
 import 'package:curso_flutter/views/isolate/isolate_view.dart';
+import 'package:curso_flutter/views/meal/meal_detail_view.dart';
+import 'package:curso_flutter/views/meal/meal_list_view.dart';
 import 'package:curso_flutter/views/paso_parametros/detalle_screen.dart';
 import 'package:curso_flutter/views/paso_parametros/paso_parametros_screen.dart';
 import 'package:curso_flutter/views/pokemons/pokemon_detail_view.dart';
@@ -104,6 +107,35 @@ final GoRouter appRouter = GoRouter(
       path: '/cdts', // se recibe el nombre del pokemon como parametro
       name: 'cdts',
       builder: (context, state) => const CDTListView(),
+    ),
+    //!Ruta para el Meal
+
+    //!Ruta lista de comidas
+    GoRoute(
+      path: '/meal',
+      builder: (context, state) => const MealListView(),
+    ),
+
+    //!Ruta detalle de receta
+    GoRoute(
+      path: '/meal/:id',
+      name: 'meal_detail_view',
+      builder: (context, state) {
+        final String id = state.pathParameters['id']!;
+        final extra = state.extra;
+
+        // Realizar cast seguro:
+        Meal? maybeMeal;
+        if (extra != null && extra is Meal) {
+          maybeMeal = extra;
+        } else {
+          maybeMeal = null;
+        }
+        return MealDetailView(
+          id: id,
+          maybeMeal: maybeMeal,
+        );
+      },
     ),
   ],
 );

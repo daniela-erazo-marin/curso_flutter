@@ -132,3 +132,110 @@ Se registran en consola:
 └──► [IsolateView] → Tarea pesada en hilo secundario
 
 El flujo de la app se encuentra en el word entregado.
+
+
+# Taller HTTP con Flutter – Recetas con TheMealDB
+
+## 📖 Descripción de la API usada
+
+Este proyecto consume la API pública **TheMealDB**, que permite buscar recetas y obtener detalles de las mismas.
+
+- **Variable de entorno usada**:  
+  `MEAL_API_URL = https://www.themealdb.com/api/json/v1/1`
+
+- **Endpoint de búsqueda**  
+  `GET https://www.themealdb.com/api/json/v1/1/search.php?s={nombre}`  
+  Si por ejemplo buscas *Arrabiata*:
+
+
+  **Ejemplo de respuesta JSON**:
+```json
+{
+  "meals": [
+    {
+      "idMeal": "52771",
+      "strMeal": "Spicy Arrabiata Penne",
+      "strCategory": "Vegetarian",
+      "strArea": "Italian",
+      "strInstructions": "Bring a large pot …",
+      "strMealThumb": "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg",
+      "strTags": "Pasta,Curry",
+      "strIngredient1": "penne rigate",
+      "strMeasure1": "1 pound",
+      "strIngredient2": "olive oil",
+      "strMeasure2": "1/4 cup",
+      // … hasta strIngredient20 / strMeasure20 …
+    }
+  ]
+}
+
+Endpoint de detalle por ID
+GET https://www.themealdb.com/api/json/v1/1/lookup.php?i={id}
+Devuelve un objeto meals con una sola receta con todos sus datos.
+
+
+Estructura de carpetas principal usada:
+
+![Estructura](assets/estru.png)
+
+
+lib/
+  models/
+    meal.dart
+  services/
+    meal_service.dart
+  views/
+    home/
+    ciclo_vida/
+    paso_parametros/
+    widgets_demo/
+    meal/
+      meal_list_view.dart
+      meal_detail_view.dart
+  routes/
+    app_router.dart
+  themes/
+    app_theme.dart
+  widgets/
+    base_view.dart
+    custom_drawer.dart
+main.dart
+.env
+
+Especificaciones:
+
+models/meal.dart — modelo Dart que mapea JSON a objeto Meal.
+
+services/meal_service.dart — lógica HTTP para consumir los endpoints y lanzar errores si algo falla.
+
+views/meal/ — pantallas de listado (meal_list_view.dart) y detalle (meal_detail_view.dart).
+
+routes/app_router.dart — configuración de rutas con go_router.
+
+themes/, widgets/ y otras vistas pertenecientes a otros módulos de la app.
+
+
+
+
+Estas son las rutas principales del módulo de recetas junto con los parámetros:
+
+/meal	– MealListView (listado de recetas)
+/meal/:id - meal_detail_view	id vía pathParameter (Detalle de recetas)
+
+
+Aquí irían tus capturas de pantalla o GIFs:
+
+📸 Listado de recetas con imágenes y nombres
+![Listado de recetas](assets/list.png)
+
+📸 Detalle de receta mostrando instrucciones, ingredientes y tags
+![Detalle de receta](assets/detail.png)
+
+📸 Pantalla de carga (CircularProgressIndicator)
+![Cargando](assets/carga.png)
+
+📸 Mensaje de error si falla la petición
+![Error de red](assets/error.png)
+
+📸 Mensaje de éxito
+![Éxito de red](assets/a/la/exito.png)
