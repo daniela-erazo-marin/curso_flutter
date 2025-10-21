@@ -250,3 +250,71 @@ Estas son las rutas principales del módulo de recetas junto con los parámetros
 
 ![Éxito de red](assets/exito.png)
 
+
+
+# Proyecto – Distribución de APK de prueba
+
+## Flujo general  
+Generar APK → App Distribution → Testers → Instalación → Actualización  
+En este proyecto de la asignatura, seguimos ese flujo para entregar un build de prueba y luego su actualización.
+
+## Publicación  
+### Pasos resumidos  
+1. En el proyecto Flutter actualiza el campo de versión en `pubspec.yaml`, por ejemplo:  
+   ```yaml
+   version: 1.0.1+2
+
+donde 1.0.1 es el versionName y 2 el versionCode.
+
+2. Construir el APK de release con el comando (flutter build apk).
+
+3. En la consola de Firebase: ir al proyecto correspondiente → App Distribution → “Releases”.
+
+Subir el APK generado, añadir el archivo google-services.json si corresponde (en la primera version 1.0.0 se requiere google-services.json firebase da el paso a paso para hacerlo en la primera version), y asignar el build al grupo de testers ( QA_Clase o verificadores Uceva).
+
+Ingresar las Release Notes (qué cambió, versión, instrucciones de testers).
+
+En “Testers & Groups” verifica que el correo dduran@uceva.edu.co está agregado.
+
+Distribuir: el tester recibe correo, instala la app en un dispositivo Android físico y verifica la ejecución.
+
+Para actualización: incrementa versión+code, vuelve a construir, subir nuevo build, repetir distribución.
+
+
+Versionado
+
+Se uso el formato: version: A.B.C+X en pubspec.yaml.
+
+Donde A.B.C es la versión visible al usuario.
+
+X es el build number/ versionCode para Android, debe incrementarse siempre que se publica un nuevo build.
+
+Ejemplo usado en esta entrega: 1.0.1+2.
+
+Formato de Release Notes usado
+
+Versión: [versión] (versionCode: [code])
+
+Fecha de lanzamiento: [YYYY-MM-DD]
+
+Responsable: [nombre Responsable / equipo]
+
+Qué hay de nuevo: lista de nuevas funcionalidades o mejoras.
+
+Correcciones (Fixes): lista de errores resueltos.
+
+Notas para testers / instrucciones de instalación: cómo instalar, qué revisar, grupo de testers.
+
+Limitaciones conocidas / próximos pasos: aspectos no implementados o pendientes para futuras versiones.
+
+
+Evidencias: 
+
+
+Se incluyen capturas en el documento de pantalla del panel de Firebase (Releases y Testers), del correo de invitación, y de la app instalada en el dispositivo Android. 
+
+![APK 1.0.0](assets/apk_1.jpeg)
+
+![APK actualizada](assets/apk_2.jpeg)
+
+![Documento con todas las capturas](assets\taller_apk.pdf)
