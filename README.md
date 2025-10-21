@@ -317,4 +317,4 @@ Se incluyen capturas en el documento de pantalla del panel de Firebase (Releases
 
 ![APK actualizada](assets/apk_2.jpeg)
 
-![Documento con todas las capturas](assets\taller_apk.pdf)
+![Documento con todas las capturas](assets/taller_apk.pdf)
