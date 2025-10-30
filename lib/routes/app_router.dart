@@ -1,14 +1,16 @@
 import 'package:curso_flutter/models/meal.dart';
+import 'package:curso_flutter/views/auth/login_page.dart';
 import 'package:curso_flutter/views/cdt/cdt_list_view.dart';
 import 'package:curso_flutter/views/ciclo_vida/ciclo_vida_screen.dart';
 import 'package:curso_flutter/views/future/future_view.dart';
-import 'package:curso_flutter/views/home/detalle_page.dart';
-import 'package:curso_flutter/views/home/home_screen.dart';
+import 'package:curso_flutter/views/home/home_screem.dart';
+import 'package:curso_flutter/views/paso_parametros2/detalle_page.dart';
 import 'package:curso_flutter/views/isolate/isolate_view.dart';
 import 'package:curso_flutter/views/meal/meal_detail_view.dart';
 import 'package:curso_flutter/views/meal/meal_list_view.dart';
 import 'package:curso_flutter/views/paso_parametros/detalle_screen.dart';
 import 'package:curso_flutter/views/paso_parametros/paso_parametros_screen.dart';
+import 'package:curso_flutter/views/paso_parametros2/go_page.dart';
 import 'package:curso_flutter/views/pokemons/pokemon_detail_view.dart';
 import 'package:curso_flutter/views/pokemons/pokemon_list_view.dart';
 import 'package:curso_flutter/views/timer/TimerView.dart';
@@ -136,6 +138,13 @@ final GoRouter appRouter = GoRouter(
           maybeMeal: maybeMeal,
         );
       },
+    ),
+     GoRoute(path: '/login', builder: (context, state) => const LoginPage()),
+      //!Paso parametros 2
+    GoRoute(
+      path: '/paso_parametros2',
+      name: 'paso_parametros2',
+      builder: (context, state) => const GoPage(),
     ),
   ],
 );

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class GoPage extends StatefulWidget {
+  const GoPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<GoPage> createState() => _GoPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _GoPageState extends State<GoPage> {
 
   final TextEditingController controller = TextEditingController();
 

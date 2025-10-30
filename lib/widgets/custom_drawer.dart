@@ -71,6 +71,13 @@ class CustomDrawer extends StatelessWidget {
               context.go('/paso_parametros');
             },
           ),
+           ListTile(
+            leading: const Icon(Icons.insert_chart),
+            title: const Text('Paso de Parámetros 2'),
+            onTap: () {
+              context.go('/paso_parametros2');
+            },
+          ),
           ListTile(
             leading: const Icon(Icons.loop),
             title: const Text('Ciclo de Vida'),
@@ -131,6 +138,14 @@ class CustomDrawer extends StatelessWidget {
             title: const Text('Meal'),
             onTap: () {
               context.go('/meal');
+            },
+          ),
+          //!LOGIN
+          ListTile(
+            leading: const Icon(Icons.login),
+            title: const Text('Login'),
+            onTap: () {
+              context.go('/login');
             },
           ),
         ],
