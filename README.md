@@ -320,9 +320,9 @@ Se incluyen capturas en el documento de pantalla del panel de Firebase (Releases
 ![Documento con todas las capturas](assets/taller_apk.pdf)
 
 
-Taller – Autenticación con API Pública VisionTic
+# Taller – Autenticación con API Pública VisionTic
 
-1. Autenticación – Clase AuthService (lib/services/auth_service.dart)
+## 1. Autenticación – Clase AuthService (lib/services/auth_service.dart)
 
 Endpoint utilizado:
 
@@ -330,7 +330,7 @@ POST https://parking.visiontic.com.co/api/login
 
 
 
-Descripción técnica:
+### Descripción técnica:
 
 Se envían las credenciales (email, password) en formato JSON al endpoint.
 
@@ -339,7 +339,7 @@ La respuesta incluye un token JWT, tipo de token (type) y tiempo de expiración 
 La clase AuthService maneja todo el proceso de autenticación, almacenamiento y recuperación de credenciales.
 
 
-Flujo del método login():
+### Flujo del método login():
 
 Envía la solicitud al endpoint /api/login.
 
@@ -352,7 +352,7 @@ await _secureStorage.write(key: 'token_type', value: data['type']);
 await _secureStorage.write(key: 'expires_in', value: data['expires_in'].toString());
 
 
-Almacena los datos no sensibles del usuario en SharedPreferences:
+### Almacena los datos no sensibles del usuario en SharedPreferences:
 
 await prefs.setString('user_name', data['user']['name']);
 await prefs.setString('user_email', data['user']['email']);
@@ -364,7 +364,7 @@ Devuelve un mapa con el resultado (success: true/false).
 
 
 
-2. Almacenamiento Local
+## 2. Almacenamiento Local
 
 Dato: Sensible	
 Herramienta: FlutterSecureStorage	
@@ -388,7 +388,7 @@ logout() → Elimina toda la información del almacenamiento local.
 
 
 
-3. Vista Principal – Clase HomeScreem (lib/views/home/home_screem.dart)
+## 3. Vista Principal – Clase HomeScreem (lib/views/home/home_screem.dart)
 
 
 Esta pantalla actúa como panel de evidencia, mostrando los datos almacenados de la sesión actual.
@@ -409,18 +409,18 @@ Incluye botones en el AppBar:
 
 🚪 Cerrar sesión (_logout()).
 
-Estado del token:
+### Estado del token:
 Se indica visualmente si el token está presente o no (token cargado correctamente o ausente).
 
 
 
-4. Cierre de Sesión – Método logout() (AuthService + HomeScreem)
+## 4. Cierre de Sesión – Método logout() (AuthService + HomeScreem)
 
-Proceso técnico:
+### Proceso técnico:
 
 Desde HomeScreem, el método _logout() solicita confirmación mediante un AlertDialog.
 
-Si el usuario confirma:
+### Si el usuario confirma:
 
 Se ejecuta AuthService.logout() para eliminar:
 
@@ -428,7 +428,7 @@ Datos sensibles (FlutterSecureStorage): token, token_type, expires_in.
 
 Datos no sensibles (SharedPreferences): user_id, user_name, user_email.
 
-Muestra un mensaje de éxito con SnackBar:
+### Muestra un mensaje de éxito con SnackBar:
 
 ✅ Sesión cerrada exitosamente
 
@@ -436,19 +436,24 @@ Redirige al login usando GoRouter:
 
 context.go('/login');
 
-🧩 5. Clases Principales del Proyecto
-Clase	Archivo	Función principal
+## 🧩 5. Clases Principales del Proyecto
+
 AuthService	lib/services/auth_service.dart	Maneja autenticación, tokens y almacenamiento.
+
 HomeScreem	lib/views/home/home_screem.dart	Muestra evidencia de sesión y controla el logout.
+
 BaseView	lib/widgets/base_view.dart	Estructura base con CustomDrawer para navegación.
+
 CustomDrawer	lib/widgets/custom_drawer.dart	Menú lateral persistente para acceder a las vistas.
 
 
-
+📸 Error en autenticación 
 ![Error en autenticación](assets/error_auth.png)
 
+📸 Sesión cerra con éxito
 ![Sesión cerra con éxito](assets/exito_auth.png)
 
+📸 Home page
 ![Home page](assets/home.png)
 
 ![Documento con todas las capturas](assets/Tallerjwt.pdf)
