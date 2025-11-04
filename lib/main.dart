@@ -2,6 +2,8 @@ import 'package:curso_flutter/routes/app_router.dart';
 import 'package:curso_flutter/themes/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() async {
   // Asegurarse de que los widgets de Flutter estén inicializados
@@ -15,6 +17,9 @@ void main() async {
   // Inicializar dotenv para cargar las variables de entorno
   // await dotenv.load(fileName: ".env");
 
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+);
   runApp(const MyApp());
 }
 

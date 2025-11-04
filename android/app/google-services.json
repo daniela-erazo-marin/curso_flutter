@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "361844850623",
-    "project_id": "uceva-a81e4",
-    "storage_bucket": "uceva-a81e4.firebasestorage.app"
+    "project_number": "180403447759",
+    "project_id": "universidades-5cc96",
+    "storage_bucket": "universidades-5cc96.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:361844850623:android:e80f8216660c74a779ab0a",
+        "mobilesdk_app_id": "1:180403447759:android:d2882ccea08231a85994ba",
         "android_client_info": {
           "package_name": "com.example.curso_flutter"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBpeLYi-mTYEkDzpgm6PT214wbkJAUM3sM"
+          "current_key": "AIzaSyA_wQbGqgXc7CsnFKeR0pmvvoF0a7ZGoqc"
         }
       ],
       "services": {
