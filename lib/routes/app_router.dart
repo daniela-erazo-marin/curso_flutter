@@ -1,5 +1,7 @@
 import 'package:curso_flutter/models/meal.dart';
 import 'package:curso_flutter/views/auth/login_page.dart';
+import 'package:curso_flutter/views/categoria_fb/categoria_fb_form_view.dart';
+import 'package:curso_flutter/views/categoria_fb/categoria_fb_list_view.dart';
 import 'package:curso_flutter/views/cdt/cdt_list_view.dart';
 import 'package:curso_flutter/views/ciclo_vida/ciclo_vida_screen.dart';
 import 'package:curso_flutter/views/future/future_view.dart';
@@ -14,6 +16,8 @@ import 'package:curso_flutter/views/paso_parametros2/go_page.dart';
 import 'package:curso_flutter/views/pokemons/pokemon_detail_view.dart';
 import 'package:curso_flutter/views/pokemons/pokemon_list_view.dart';
 import 'package:curso_flutter/views/timer/TimerView.dart';
+import 'package:curso_flutter/views/universidad_fb/universidad_fb_form_view.dart';
+import 'package:curso_flutter/views/universidad_fb/universidad_fb_list_view.dart';
 import 'package:curso_flutter/views/widgets_demo/widgets_demo_screen.dart';
 import 'package:go_router/go_router.dart';
 
@@ -145,6 +149,44 @@ final GoRouter appRouter = GoRouter(
       path: '/paso_parametros2',
       name: 'paso_parametros2',
       builder: (context, state) => const GoPage(),
+    ),
+    //! Rutas para el manejo de Categorías (CRUD)
+    GoRoute(
+     path: '/categoriasFirebase',
+     name: 'categoriasFirebase',
+     builder: (_, __) => const CategoriaFbListView(),
+    ),
+    GoRoute(
+     path: '/categoriasfb/create',
+     name: 'categoriasfb.create',
+     builder: (context, state) => const CategoriaFbFormView(),
+    ),
+    GoRoute(
+     path: '/categoriasfb/edit/:id',
+     name: 'categorias.edit',
+     builder: (context, state) {
+     final id = state.pathParameters['id']!;
+        return CategoriaFbFormView(id: id);
+      },
+    ),
+    //! Rutas para el manejo de Universidades (CRUD)
+    GoRoute(
+     path: '/universidadesFirebase',
+     name: 'universidadesFirebase',
+     builder: (_, __) => const UniversidadFbListView(),
+    ),
+    GoRoute(
+     path: '/universidadesfb/create',
+     name: 'universidadesfb.create',
+     builder: (context, state) => const UniversidadFbFormView(),
+    ),
+    GoRoute(
+     path: '/universidadesfb/edit/:id',
+     name: 'universidadesfb.edit',
+     builder: (context, state) {
+     final id = state.pathParameters['id']!;
+        return UniversidadFbFormView(id: id);
+      },
     ),
   ],
 );
