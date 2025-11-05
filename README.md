@@ -458,3 +458,51 @@ CustomDrawer	lib/widgets/custom_drawer.dart	Menú lateral persistente para acced
 
 ![Documento con todas las capturas](assets/Tallerjwt.pdf)
 
+# Descripción técnica del Taller3: Integración con Firebase
+
+Durante el desarrollo del taller se construyó una aplicación en Flutter orientada a la gestión de universidades, implementando una arquitectura modular basada en la separación por capas: modelo, servicios e interfaces gráficas.
+
+## 1.	Modelo de datos (Entidad Universidad)
+Se diseñó la clase Universidad como modelo base, la cual contiene los atributos principales:
+•	nit (string)
+•	nombre (string)
+•	direccion (string)
+•	telefono (string)
+•	pagina_web (string, URL)
+Esta estructura fue implementada en Dart y métodos fromMap() y toMap() para permitir su integración con Firebase.
+
+## 2.	Servicio de datos (UniversidadService)
+Se creó un servicio encargado de la comunicación con la base de datos cloud Firebase, gestionando las operaciones CRUD:
+o	getUniversidades() → obtiene la lista de universidades.
+o	addUniversidad() → agrega un nuevo registro.
+o	updateUniversidad() → actualiza los datos existentes.
+o	deleteUniversidad() → elimina un registro.
+El servicio utiliza la librería cloud_firestore para manejar la persistencia en la nube de manera asíncrona, garantizando integridad y respuesta en tiempo real.
+
+## 3.	Configuración de Firebase
+El proyecto se integró con Firebase mediante la consola de desarrollador, registrando la aplicación y descargando los archivos de configuración firebase_options.dart y firebase.json.
+Se habilitó Firestore Database en modo de prueba y se crearon las colecciones necesarias (universidades).
+La estructura de cada documento contiene los campos mencionados en el modelo, con sus tipos de datos definidos (String).
+
+## 4.	Interfaz gráfica (UI)
+Se desarrolló una interfaz visual responsiva utilizando componentes de Material Design:
+o	Formulario de registro con TextFormField y validadores personalizados (por ejemplo, validación de formato para correos y URLs).
+o	Listado tipo grid implementado con GridView y _buildGridContent(), mostrando los datos de cada universidad con un diseño limpio, botones de acción (IconButton) y manejo de eventos (onPressed, showDialog, etc.).
+o	Uso de ColorScheme para adaptar los colores a los temas claro/oscuro del sistema.
+
+## 5.	Validaciones técnicas
+Se implementaron validaciones en los campos del formulario para garantizar la integridad de los datos:
+o	El nombre y dirección no pueden estar vacíos.
+o	La página web se valida usando Uri.tryParse() para asegurar un formato correcto de URL.
+
+## 6.	Pruebas con datos ficticios
+Finalmente, se cargaron registros de prueba en la colección de Firebase con información simulada de universidades colombianas (nit, nombre, dirección, teléfono y página web) para verificar el correcto funcionamiento del flujo completo de registro, lectura, actualización y eliminación.
+
+📸 Doc
+
+![Documento con todas las capturas](assets/IntegraciónconFirebase.pdf)
+
+📸 Instalar Flutter Fire CLI
+
+![Documento con todas las capturas](assets/InstalarFlutterFireCLI.pdf)
+
