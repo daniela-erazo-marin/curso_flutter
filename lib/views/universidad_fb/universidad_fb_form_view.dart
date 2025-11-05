@@ -327,20 +327,28 @@ class _UniversidadFbFormViewState extends State<UniversidadFbFormView> {
                         TextFormField(
                           controller: _pagina_webController,
                           decoration: InputDecoration(
-                            labelText: 'Pagina web',
-                            hintText: 'Ingresa la pagina web de la universidad',
+                            labelText: 'Página web',
+                            hintText: 'Ingresa la página web de la universidad',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),
                           ),
-                          textCapitalization: TextCapitalization.words,
+                          keyboardType: TextInputType.url,
+                          textCapitalization: TextCapitalization.none,
                           validator: (value) {
                             if (value == null || value.trim().isEmpty) {
-                              return 'La pagina web es requerida';
+                              return 'La página web es requerida';
                             }
-                            if (value.trim().length < 10) {
-                              return 'La pagina web debe tener al menos 10 caracteres';
+
+                            final url = value.trim();
+
+                            // Verifica si es una URL válida
+                            final uri = Uri.tryParse(url);
+
+                            if (uri == null || !uri.hasScheme || !uri.hasAuthority) {
+                              return 'Ingresa una URL válida (ejemplo: https://www.universidad.edu.co)';
                             }
+
                             return null;
                           },
                         ),
