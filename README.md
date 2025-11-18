@@ -660,3 +660,48 @@ flutter pub get
 
 3️⃣ Ejecutar la app
 flutter run
+
+
+## 📴 Cómo probar el modo offline
+# 🧪 1. Crear tareas sin internet
+
+Apaga WiFi/datos
+
+Crea, edita o elimina tareas
+
+Verás que todo funciona offline gracias al local datasource
+
+# 🧪 2. Revisar la cola local
+
+Cada operación se marca como:
+
+operation: create | update | delete
+
+syncedAt: null
+
+# 🧪 3. Activar internet nuevamente
+
+Cuando vuelve la conexión:
+
+SyncService detecta conectividad
+
+Envía operaciones pendientes al backend
+
+Actualiza syncedAt
+
+Refresca la lista
+
+# 🧪 4. Prueba sincronización manual
+
+Presiona el botón:
+
+AppBar → ícono de Sync (🔄)
+
+
+📸 Documento FastAPI-SQLite-APK
+
+![Documento con todas las capturas](assets/FastAPI-SQLite-APK.pdf)
+
+📸 Imagen de la app 
+
+![captura](assets/to-do.png)
