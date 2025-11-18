@@ -556,7 +556,9 @@ task_local_datasource.dart
 
 Ubicado en /data/remote, se encarga de:
 
-Llamadas HTTP a la API (FastAPI o backend que uses)
+Llamadas HTTP a la API (FastAPI en aws)
+
+http://44.200.31.83
 
 Enviar operaciones pendientes
 
