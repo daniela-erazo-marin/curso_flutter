@@ -39,15 +39,27 @@ class TaskProvider extends ChangeNotifier {
   }
 
   Future<void> toggleTask(TaskModel t) async {
-    final updated = t.copyWith(completed: !t.completed, updatedAt: DateTime.now());
-    await repo.updateTask(updated);
-    await loadTasks();
-  }
+  final updated = t.copyWith(completed: !t.completed, updatedAt: DateTime.now());
+
+  // Actualiza en background (no bloquea la UI)
+  repo.updateTask(updated);
+
+  // Actualiza la lista en RAM sin recargar SQLite
+  final index = tasks.indexWhere((x) => x.id == t.id);
+  tasks[index] = updated;
+
+  notifyListeners();
+}
+
 
   Future<void> deleteTask(TaskModel t) async {
-    await repo.deleteTask(t.id);
-    await loadTasks();
-  }
+  await repo.deleteTask(t.id);
+
+  // ⭐ Recargar desde SQLite (que ya tiene deleted = 1)
+  tasks = await repo.getTasks();
+
+  notifyListeners();
+}
 
   // manual sync trigger
   Future<void> syncNow() async {
