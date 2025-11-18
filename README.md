@@ -506,3 +506,202 @@ Finalmente, se cargaron registros de prueba en la colección de Firebase con inf
 
 ![Documento con todas las capturas](assets/InstalarFlutterFireCLI.pdf)
 
+# 📝 README.md – To-Do App Offline / Sync Flutter
+# 📌 Descripción del proyecto
+
+Esta es una aplicación móvil desarrollada en Flutter, diseñada para funcionar tanto offline como online, permitiendo gestionar tareas con sincronización automática cuando vuelve la conexión. Implementa:
+
+Persistencia local (modo offline)
+
+Cola de sincronización
+
+Actualización automática cuando hay internet
+
+CRUD completo de tareas (crear, editar, completar, eliminar)
+
+## 🏗️ Arquitectura utilizada
+
+La aplicación sigue una arquitectura por capas con separación completa entre:
+
+# 1. Capa UI (Presentación)
+
+Pantallas (/ui/screens)
+
+
+Se utiliza Provider para manejo de estado y actualización reactiva de la UI.
+
+# 2. Capa de Dominio
+
+Contiene los modelos que representan las entidades del negocio:
+
+TaskModel
+
+# 3. Capa de Datos (Data Layer)
+
+# a) Local DataSource
+
+Ubicado en /data/local, se encarga de:
+
+Guardar tareas localmente
+
+Obtener tareas guardadas
+
+Administrar operaciones offline (cola de sincronización)
+
+Ejemplo:
+
+task_local_datasource.dart
+
+# b) Remote DataSource
+
+Ubicado en /data/remote, se encarga de:
+
+Llamadas HTTP a la API (FastAPI o backend que uses)
+
+Enviar operaciones pendientes
+
+Ejemplo:
+
+task_remote_datasource.dart
+
+# c) Repositorio
+
+Centraliza la lógica entre remote y local:
+
+repositories/task_repository.dart
+
+# 4. Capa de Servicios
+
+Incluye servicios que no son UI ni datos:
+
+🔄 SyncService
+
+Encargado de:
+
+Detectar conexión (connectivity_plus)
+
+Leer cola de operaciones pendientes
+
+Enviar tareas al backend
+
+Actualizar estados tras la sincronización
+
+Reintentar con backoff exponencial
+
+Archivo:
+
+services/sync_service.dart
+
+# 5. Provider (State Management)
+
+TaskProvider es el puente entre UI ↔ Repositorio.
+
+Se encarga de:
+
+Cargar tareas
+
+Crear, editar, completar, eliminar
+
+Lanzar sincronización manual y automática
+
+Actualizar la lista con notifyListeners()
+
+Archivo:
+
+provider/task_provider.dart
+
+# 📁 Estructura de Carpetas
+
+lib/
+│
+├── data/
+│   ├── local/
+│   │   └── task_local_datasource.dart
+│   ├── remote/
+│   │   └── task_remote_datasource.dart
+│   └── repositories/
+│       └── task_repository.dart
+│
+├── models/
+│   └── task.dart
+│
+├── provider/
+│   └── task_provider.dart
+│
+├── services/
+│   └── sync_service.dart
+│
+├── ui/
+│   ├── screens/
+│   │   ├── tasks_screen.dart
+│   │   ├── task_edit_screen.dart
+│   │   └── task_create_screen.dart
+│   └── widgets/
+│       └── task_item.dart
+│
+└── main.dart
+
+# ⚙️ Tecnologías y Paquetes Usados
+Tecnología / Paquete	Uso
+Flutter	Framework móvil multiplataforma
+Provider	Manejo de estado
+connectivity_plus	Detectar conexión a internet
+http	Consumo de API REST
+sqflite / shared_preferences (según implementación)	Persistencia local
+uuid	Generación de IDs offline
+Material Design	UI
+
+#🚀 Instrucciones de Instalación
+1️⃣ Clonar el repositorio
+https://github.com/daniela-erazo-marin/curso_flutter
+
+2️⃣ Instalar dependencias
+flutter pub get
+
+3️⃣ Ejecutar la app
+flutter run
+
+
+## 📴 Cómo probar el modo offline
+# 🧪 1. Crear tareas sin internet
+
+Apaga WiFi/datos
+
+Crea, edita o elimina tareas
+
+Verás que todo funciona offline gracias al local datasource
+
+# 🧪 2. Revisar la cola local
+
+Cada operación se marca como:
+
+operation: create | update | delete
+
+syncedAt: null
+
+# 🧪 3. Activar internet nuevamente
+
+Cuando vuelve la conexión:
+
+SyncService detecta conectividad
+
+Envía operaciones pendientes al backend
+
+Actualiza syncedAt
+
+Refresca la lista
+
+# 🧪 4. Prueba sincronización manual
+
+Presiona el botón:
+
+AppBar → ícono de Sync (🔄)
+
+
+📸 Documento FastAPI-SQLite-APK
+
+![Documento con todas las capturas](assets/FastAPI-SQLite-APK.pdf)
+
+📸 Imagen de la app 
+
+![captura](assets/to-do.png)

@@ -2,6 +2,9 @@ import 'package:curso_flutter/models/meal.dart';
 import 'package:curso_flutter/views/auth/login_page.dart';
 import 'package:curso_flutter/views/categoria_fb/categoria_fb_form_view.dart';
 import 'package:curso_flutter/views/categoria_fb/categoria_fb_list_view.dart';
+import 'package:curso_flutter/views/categorias/categorias_create_view.dart';
+import 'package:curso_flutter/views/categorias/categorias_edit_view.dart';
+import 'package:curso_flutter/views/categorias/categorias_list_view.dart';
 import 'package:curso_flutter/views/cdt/cdt_list_view.dart';
 import 'package:curso_flutter/views/ciclo_vida/ciclo_vida_screen.dart';
 import 'package:curso_flutter/views/future/future_view.dart';
@@ -15,6 +18,9 @@ import 'package:curso_flutter/views/paso_parametros/paso_parametros_screen.dart'
 import 'package:curso_flutter/views/paso_parametros2/go_page.dart';
 import 'package:curso_flutter/views/pokemons/pokemon_detail_view.dart';
 import 'package:curso_flutter/views/pokemons/pokemon_list_view.dart';
+import 'package:curso_flutter/views/provider/change_theme_view.dart';
+import 'package:curso_flutter/views/task/task_create_screen.dart';
+import 'package:curso_flutter/views/task/tasks_screen.dart';
 import 'package:curso_flutter/views/timer/TimerView.dart';
 import 'package:curso_flutter/views/universidad_fb/universidad_fb_form_view.dart';
 import 'package:curso_flutter/views/universidad_fb/universidad_fb_list_view.dart';
@@ -188,5 +194,35 @@ final GoRouter appRouter = GoRouter(
         return UniversidadFbFormView(id: id);
       },
     ),
+    //!Ruta para el demo de Provider
+    GoRoute(
+      path: '/cambiar-tema',
+      name: 'cambiar-tema',
+      builder: (context, state) => const ChangeThemeView(),
+    ),
+    //! Rutas para el manejo de Categorías (CRUD) sqflite
+    GoRoute(
+      path: '/categorias',
+      name: 'categoriasSqlite',
+      builder: (_, __) => const CategoriasListView(),
+    ),
+    GoRoute(
+      path: '/categorias/create',
+      builder: (context, state) => const CategoriasCreateView(),
+    ),
+    GoRoute(
+      path: '/categorias/edit/:id',
+      builder: (context, state) {
+        final id = int.parse(state.pathParameters['id']!);
+        return CategoriasEditView(id: id);
+      },
+    ),
+    GoRoute(path: '/tasks', 
+    builder: (context, state) => const TasksScreen()
+    ),
+    GoRoute(path: '/tasks/create', 
+    builder: (context, state) => const TaskCreateScreen()
+    ),
+    // edit screen uses navigation with TaskModel, we push with MaterialPageRoute from item
   ],
 );
